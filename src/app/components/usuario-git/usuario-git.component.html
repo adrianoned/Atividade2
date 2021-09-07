@@ -1,0 +1,39 @@
+
+
+<h1 class="title animated jackInTheBox">Lista de Usuários</h1>
+<ul class="animated flipInX" *ngIf="mode=='list'" >
+  <li *ngFor="let i of usuarios">
+    {{ i.id }} -
+    {{ i.login }}
+    <button (click)="getPorLogin(i.login)"><i class="far fa-eye"></i></button>
+  </li>
+</ul>
+
+<div id="modal" *ngIf="mode=='add'" class="animated flipInX">
+    <h1 class="text-center">{{usuario.name}}</h1>
+    <ul>
+        <li>Id: {{ usuario.id }} </li>
+        <li>Login: {{ usuario.login }}</li>
+        <li> URL do Perfil: {{ usuario.url }}</li>
+        <li> Data de cadastro: {{ usuario.created_at }}</li>
+        <h3 class="text-center">Repositorios</h3>
+        <ul>
+            <li *ngFor="let r of repositorios">
+                Id: {{ r.id }}<br>
+                Nome: {{ r.name }}<br>
+                URL: {{ r.url }} <br>
+              </li>
+        </ul>
+        
+
+          
+    </ul>
+       
+      <p class="text-center">
+        <button (click)="fechar()" class="button"><i class="far fa-close"></i> Fechar</button>
+      </p>
+   
+    <br><br>
+  </div>
+
+
